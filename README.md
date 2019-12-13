@@ -40,15 +40,14 @@ const MyCheckbox = () => (
   <label className="my-checkbox">
     <Checkbox>
       <span className="my-checkbox">
-        <Unchecked>
-          <span className="checkmark" />
-        </Unchecked>
         <Checked>
           <span className="checkmark checked" />
         </Checked>
+        <Unchecked>
+          <span className="checkmark" />
+        </Unchecked>
       </span>
     </Checkbox>
-
     Check me!
   </label>
 )
@@ -73,6 +72,14 @@ const MyCheckbox = () => (
 |      |      |         |           |             |
 
 ### `<Unchecked>`
+
+#### Props
+
+| Prop | Type | Default | Required? | Description |
+| ---- | ---- | ------- | --------- | ----------- |
+|      |      |         |           |             |
+
+### `<Toggle>`
 
 #### Props
 

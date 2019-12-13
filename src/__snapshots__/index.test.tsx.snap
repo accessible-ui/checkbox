@@ -22,7 +22,7 @@ Object {
 }
 `;
 
-exports[`<CheckboxChecked> should be null when unchecked 1`] = `
+exports[`<Checked> should be null when unchecked 1`] = `
 <DocumentFragment>
   <label
     data-testid="label"
@@ -38,7 +38,7 @@ exports[`<CheckboxChecked> should be null when unchecked 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<CheckboxChecked> should display when checked: checked 1`] = `
+exports[`<Checked> should display when checked: checked 1`] = `
 <DocumentFragment>
   <label
     data-testid="label"
@@ -56,7 +56,7 @@ exports[`<CheckboxChecked> should display when checked: checked 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<CheckboxUnchecked> should be null when checked 1`] = `
+exports[`<Unchecked> should be null when checked 1`] = `
 <DocumentFragment>
   <label
     data-testid="label"
@@ -73,7 +73,7 @@ exports[`<CheckboxUnchecked> should be null when checked 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<CheckboxUnchecked> should display when unchecked 1`] = `
+exports[`<Unchecked> should display when unchecked 1`] = `
 <DocumentFragment>
   <label
     data-testid="label"

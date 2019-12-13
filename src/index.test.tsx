@@ -2,7 +2,7 @@
 import React from 'react'
 import {renderHook} from '@testing-library/react-hooks'
 import {render, fireEvent} from '@testing-library/react'
-import {Checkbox, Checked, Unchecked, useFocused, useControls} from './index'
+import {Checkbox, Checked, Unchecked, Toggle, useFocused, useControls} from './index'
 
 describe('<Checkbox>', () => {
   it('should have a custom id', () => {
@@ -132,6 +132,26 @@ describe('<Unchecked>', () => {
     )
 
     expect(result.asFragment()).toMatchSnapshot()
+  })
+})
+
+describe('<Toggle>', () => {
+  it('should toggle checkbox on and off', () => {
+    const result = render(
+      <Checkbox id="foobar" name="me" data-testid="cb">
+        <Toggle>
+          <button data-testid='toggle'>
+            Toggle checked
+          </button>
+        </Toggle>
+      </Checkbox>
+    )
+
+    expect((result.getByTestId('cb') as HTMLInputElement).checked).toBe(false)
+    fireEvent.click(result.getByTestId('toggle'))
+    expect((result.getByTestId('cb') as HTMLInputElement).checked).toBe(true)
+    fireEvent.click(result.getByTestId('toggle'))
+    expect((result.getByTestId('cb') as HTMLInputElement).checked).toBe(false)
   })
 })
 

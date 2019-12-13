@@ -1,4 +1,4 @@
-import React, {useState, useMemo, useContext} from 'react'
+import React, {useState, useCallback, useMemo, useContext} from 'react'
 import VisuallyHidden from '@accessible/visually-hidden'
 import useSwitch from '@react-hook/switch'
 import {useId} from '@reach/auto-id'
@@ -99,7 +99,7 @@ export interface CheckedProps {
 }
 
 export const Checked: React.FC<CheckedProps> = ({children}) => {
-  const checked = useChecked() as boolean
+  const checked = useChecked()
   return checked ? <>{children}</> : null
 }
 
@@ -108,8 +108,25 @@ export interface UncheckedProps {
 }
 
 export const Unchecked: React.FC<UncheckedProps> = ({children}) => {
-  const checked = useChecked() as boolean
+  const checked = useChecked()
   return !checked ? <>{children}</> : null
+}
+
+export interface ToggleProps {
+  children: JSX.Element | React.ReactElement
+}
+
+export const Toggle: React.FC<ToggleProps> = ({children}) => {
+  const {toggle} = useControls()
+  const onClick = useCallback(
+    e => {
+      toggle()
+      children.props.onClick?.(e)
+    },
+    [toggle, children.props.onClick]
+  )
+
+  return React.cloneElement(children, {onClick})
 }
 
 /* istanbul ignore next */
@@ -117,4 +134,5 @@ if (__DEV__) {
   Checkbox.displayName = 'Checkbox'
   Checked.displayName = 'Checked'
   Unchecked.displayName = 'Unchecked'
+  Toggle.displayName = 'Toggle'
 }
