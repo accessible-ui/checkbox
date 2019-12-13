@@ -46,10 +46,10 @@ const MyCheckbox = () => (
         <Checked>
           <span className="checkmark checked" />
         </Checked>
-
-        <span>Check me!</span>
       </span>
     </Checkbox>
+
+    Check me!
   </label>
 )
 ```
