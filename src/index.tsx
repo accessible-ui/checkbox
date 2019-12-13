@@ -98,7 +98,7 @@ export interface CheckedProps {
   children: React.ReactNode
 }
 
-export const CheckboxChecked: React.FC<CheckedProps> = ({children}) => {
+export const Checked: React.FC<CheckedProps> = ({children}) => {
   const checked = useChecked() as boolean
   return checked ? <>{children}</> : null
 }
@@ -107,7 +107,7 @@ export interface UncheckedProps {
   children: React.ReactNode
 }
 
-export const CheckboxUnchecked: React.FC<UncheckedProps> = ({children}) => {
+export const Unchecked: React.FC<UncheckedProps> = ({children}) => {
   const checked = useChecked() as boolean
   return !checked ? <>{children}</> : null
 }
@@ -115,6 +115,6 @@ export const CheckboxUnchecked: React.FC<UncheckedProps> = ({children}) => {
 /* istanbul ignore next */
 if (__DEV__) {
   Checkbox.displayName = 'Checkbox'
-  CheckboxChecked.displayName = 'CheckboxChecked'
-  CheckboxUnchecked.displayName = 'CheckboxUnchecked'
+  Checked.displayName = 'Checked'
+  Unchecked.displayName = 'Unchecked'
 }
