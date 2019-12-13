@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox.Checked> should be null when unchecked 1`] = `
+<DocumentFragment>
+  <label
+    data-testid="label"
+  >
+    <input
+      data-testid="cb"
+      id="checkbox--foobar"
+      name="me"
+      style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+      type="checkbox"
+    />
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Checkbox.Checked> should display when checked: checked 1`] = `
+<DocumentFragment>
+  <label
+    data-testid="label"
+  >
+    <input
+      checked=""
+      data-testid="cb"
+      id="checkbox--foobar"
+      name="me"
+      style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+      type="checkbox"
+    />
+    Checked
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Checkbox.Unchecked> should be null when checked 1`] = `
+<DocumentFragment>
+  <label
+    data-testid="label"
+  >
+    <input
+      checked=""
+      data-testid="cb"
+      id="checkbox--foobar"
+      name="me"
+      style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+      type="checkbox"
+    />
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Checkbox.Unchecked> should display when unchecked 1`] = `
+<DocumentFragment>
+  <label
+    data-testid="label"
+  >
+    <input
+      data-testid="cb"
+      id="checkbox--foobar"
+      name="me"
+      style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+      type="checkbox"
+    />
+    Unchecked
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Checkbox> should have a custom id: checkbox--foobar 1`] = `
+<DocumentFragment>
+  <input
+    id="checkbox--foobar"
+    name="me"
+    style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+    type="checkbox"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Checkbox> should provide context to function child 1`] = `
+Object {
+  "check": [Function],
+  "checked": false,
+  "focused": false,
+  "id": "checkbox--1",
+  "toggle": [Function],
+  "uncheck": [Function],
+}
+`;
+
+exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: false 1`] = `
+<DocumentFragment>
+  <input
+    data-testid="cb"
+    id="checkbox--2"
+    style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+    type="checkbox"
+  />
+  false
+</DocumentFragment>
+`;
+
+exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: false 2`] = `
+<DocumentFragment>
+  <input
+    data-testid="cb"
+    id="checkbox--2"
+    style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+    type="checkbox"
+  />
+  false
+</DocumentFragment>
+`;
+
+exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: true 1`] = `
+<DocumentFragment>
+  <input
+    data-testid="cb"
+    id="checkbox--2"
+    style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+    type="checkbox"
+  />
+  true
+</DocumentFragment>
+`;

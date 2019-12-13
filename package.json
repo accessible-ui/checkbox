@@ -1,16 +1,23 @@
 {
   "name": "@accessible/checkbox",
   "version": "1.0.0",
-  "homepage": "https://github.com/jaredLunde/accessible#readme",
-  "repository": "github:jaredLunde/accessible",
-  "bugs": "https://github.com/jaredLunde/accessible/issues",
-  "author": "Jared Lunde <jared@BeStellar.co> (https://jaredLunde.com)",
+  "homepage": "https://github.com/accessible-ui/checkbox#readme",
+  "repository": "github:accessible-ui/checkbox",
+  "bugs": "https://github.com/accessible-ui/checkbox/issues",
+  "author": "Jared Lunde <jared.lunde@gmail.com> (https://jaredLunde.com)",
   "license": "MIT",
   "description": "",
   "keywords": [
     "react",
     "react component",
-    "checkbox"
+    "checkbox",
+    "accessible checkbox",
+    "aria checkbox",
+    "a11y checkbox",
+    "accessible checkbox",
+    "checkbox component",
+    "react checkbox component",
+    "react checkbox"
   ],
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -55,6 +62,8 @@
     "@types/react-dom": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
+    "babel-plugin-optimize-react": "^0.0.4",
+    "babel-plugin-typescript-to-proptypes": "^1.1.0",
     "cross-env": "latest",
     "eslint": "latest",
     "eslint-import-resolver-jest": "latest",
@@ -70,8 +79,13 @@
     "react-test-renderer": "latest",
     "rimraf": "^2.6.3",
     "ts-jest": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "typescript-to-proptypes": "^1.4.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@accessible/visually-hidden": "^1.0.1",
+    "@reach/auto-id": "^0.6.1",
+    "@react-hook/switch": "^1.0.4"
+  },
   "peerDependencies": {}
 }
