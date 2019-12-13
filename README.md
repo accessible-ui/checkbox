@@ -34,7 +34,7 @@ An accessible checkbox component for React
 ## Quick Start
 
 ```jsx harmony
-import {Checkbox} from '@accessible/checkbox'
+import {Checkbox, Checked, Unchecked} from '@accessible/checkbox'
 
 const MyCheckbox = () => (
   <label className="my-checkbox">

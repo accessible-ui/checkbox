@@ -2,13 +2,7 @@
 import React from 'react'
 import {renderHook} from '@testing-library/react-hooks'
 import {render, fireEvent} from '@testing-library/react'
-import {
-  Checkbox,
-  Checked,
-  Unchecked,
-  useFocused,
-  useControls,
-} from './index'
+import {Checkbox, Checked, Unchecked, useFocused, useControls} from './index'
 
 describe('<Checkbox>', () => {
   it('should have a custom id', () => {
