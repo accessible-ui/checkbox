@@ -2,7 +2,7 @@
 import React from 'react'
 import {renderHook} from '@testing-library/react-hooks'
 import {render, fireEvent} from '@testing-library/react'
-import {Checkbox, useFocused, useControls} from './index'
+import {Checkbox, CheckboxChecked, CheckboxUnchecked, useFocused, useControls} from './index'
 
 describe('<Checkbox>', () => {
   it('should have a custom id', () => {
@@ -83,12 +83,12 @@ describe('<Checkbox>', () => {
   })
 })
 
-describe('<Checkbox.Checked>', () => {
+describe('<CheckboxChecked>', () => {
   it('should be null when unchecked', () => {
     const result = render(
       <label data-testid="label">
         <Checkbox id="foobar" name="me" data-testid="cb">
-          <Checkbox.Checked>Checked</Checkbox.Checked>
+          <CheckboxChecked>Checked</CheckboxChecked>
         </Checkbox>
       </label>
     )
@@ -100,7 +100,7 @@ describe('<Checkbox.Checked>', () => {
     const result = render(
       <label data-testid="label">
         <Checkbox id="foobar" name="me" checked data-testid="cb">
-          <Checkbox.Checked>Checked</Checkbox.Checked>
+          <CheckboxChecked>Checked</CheckboxChecked>
         </Checkbox>
       </label>
     )
@@ -109,12 +109,12 @@ describe('<Checkbox.Checked>', () => {
   })
 })
 
-describe('<Checkbox.Unchecked>', () => {
+describe('<CheckboxUnchecked>', () => {
   it('should be null when checked', () => {
     const result = render(
       <label data-testid="label">
         <Checkbox id="foobar" checked name="me" data-testid="cb">
-          <Checkbox.Unchecked>Unchecked</Checkbox.Unchecked>
+          <CheckboxUnchecked>Unchecked</CheckboxUnchecked>
         </Checkbox>
       </label>
     )
@@ -126,7 +126,7 @@ describe('<Checkbox.Unchecked>', () => {
     const result = render(
       <label data-testid="label">
         <Checkbox id="foobar" name="me" data-testid="cb">
-          <Checkbox.Unchecked>Unchecked</Checkbox.Unchecked>
+          <CheckboxUnchecked>Unchecked</CheckboxUnchecked>
         </Checkbox>
       </label>
     )

@@ -43,13 +43,8 @@ export interface CheckboxProps {
   [property: string]: any
 }
 
-interface CheckboxComponent<T> extends React.FC<T> {
-  Checked: React.FC<CheckedProps>
-  Unchecked: React.FC<UncheckedProps>
-}
-
 // @ts-ignore
-export const Checkbox: CheckboxComponent<CheckboxProps> = React.forwardRef<
+export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
   JSX.Element | React.ReactElement,
   CheckboxProps
 >(({id, checked, defaultChecked, children, ...props}, ref: any) => {
@@ -103,27 +98,23 @@ export interface CheckedProps {
   children: React.ReactNode
 }
 
-const Checked: React.FC<CheckedProps> = ({children}) => {
+export const CheckboxChecked: React.FC<CheckedProps> = ({children}) => {
   const checked = useChecked() as boolean
   return checked ? <>{children}</> : null
 }
-
-Checkbox.Checked = Checked
 
 export interface UncheckedProps {
   children: React.ReactNode
 }
 
-const Unchecked: React.FC<UncheckedProps> = ({children}) => {
+export const CheckboxUnchecked: React.FC<UncheckedProps> = ({children}) => {
   const checked = useChecked() as boolean
   return !checked ? <>{children}</> : null
 }
 
-Checkbox.Unchecked = Unchecked
-
 /* istanbul ignore next */
 if (__DEV__) {
   Checkbox.displayName = 'Checkbox'
-  Checkbox.Checked.displayName = 'Checked'
-  Checkbox.Unchecked.displayName = 'Unchecked'
+  CheckboxChecked.displayName = 'CheckboxChecked'
+  CheckboxUnchecked.displayName = 'CheckboxUnchecked'
 }
