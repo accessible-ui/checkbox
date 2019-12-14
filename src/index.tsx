@@ -89,7 +89,7 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
         />
       </VisuallyHidden>
 
-      {children === void 0 ? null : children}
+      {children}
     </CheckboxContext.Provider>
   )
 })
