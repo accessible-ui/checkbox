@@ -98,19 +98,15 @@ export interface CheckedProps {
   children: React.ReactNode
 }
 
-export const Checked: React.FC<CheckedProps> = ({children}) => {
-  const checked = useChecked()
-  return checked ? <>{children}</> : null
-}
+export const Checked: React.FC<CheckedProps> = ({children}) =>
+  useChecked() ? <>{children}</> : null
 
 export interface UncheckedProps {
   children: React.ReactNode
 }
 
-export const Unchecked: React.FC<UncheckedProps> = ({children}) => {
-  const checked = useChecked()
-  return !checked ? <>{children}</> : null
-}
+export const Unchecked: React.FC<UncheckedProps> = ({children}) =>
+  !useChecked() ? <>{children}</> : null
 
 export interface ToggleProps {
   children: JSX.Element | React.ReactElement
@@ -118,15 +114,15 @@ export interface ToggleProps {
 
 export const Toggle: React.FC<ToggleProps> = ({children}) => {
   const {toggle} = useControls()
-  const onClick = useCallback(
-    e => {
-      toggle()
-      children.props.onClick?.(e)
-    },
-    [toggle, children.props.onClick]
-  )
-
-  return React.cloneElement(children, {onClick})
+  return React.cloneElement(children, {
+    onClick: useCallback(
+      e => {
+        toggle()
+        children.props.onClick?.(e)
+      },
+      [toggle, children.props.onClick]
+    ),
+  })
 }
 
 /* istanbul ignore next */

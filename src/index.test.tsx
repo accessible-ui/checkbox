@@ -2,7 +2,14 @@
 import React from 'react'
 import {renderHook} from '@testing-library/react-hooks'
 import {render, fireEvent} from '@testing-library/react'
-import {Checkbox, Checked, Unchecked, Toggle, useFocused, useControls} from './index'
+import {
+  Checkbox,
+  Checked,
+  Unchecked,
+  Toggle,
+  useFocused,
+  useControls,
+} from './index'
 
 describe('<Checkbox>', () => {
   it('should have a custom id', () => {
@@ -140,9 +147,7 @@ describe('<Toggle>', () => {
     const result = render(
       <Checkbox id="foobar" name="me" data-testid="cb">
         <Toggle>
-          <button data-testid='toggle'>
-            Toggle checked
-          </button>
+          <button data-testid="toggle">Toggle checked</button>
         </Toggle>
       </Checkbox>
     )
