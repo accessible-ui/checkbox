@@ -56,6 +56,135 @@ exports[`<Checked> should display when checked: checked 1`] = `
 </DocumentFragment>
 `;
 
+exports[`<Checkmark> should apply checked and unchecked styles: checked 1`] = `
+<DocumentFragment>
+  <label
+    data-testid="label"
+  >
+    <input
+      checked=""
+      data-testid="cb"
+      id="checkbox--6"
+      name="me"
+      style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+      type="checkbox"
+    />
+    <span
+      class="checkbox--checked"
+      style="display: block;"
+    >
+      Checkmark
+    </span>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Checkmark> should apply checked and unchecked styles: unchecked 1`] = `
+<DocumentFragment>
+  <label
+    data-testid="label"
+  >
+    <input
+      checked=""
+      data-testid="cb"
+      id="checkbox--6"
+      name="me"
+      style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+      type="checkbox"
+    />
+    <span
+      style="display: none;"
+    >
+      Checkmark
+    </span>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Checkmark> should have \`checked\` class name when checked: checked 1`] = `
+<DocumentFragment>
+  <label
+    data-testid="label"
+  >
+    <input
+      checked=""
+      data-testid="cb"
+      id="checkbox--2"
+      name="me"
+      style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+      type="checkbox"
+    />
+    <span
+      class="checked"
+    >
+      Checkmark
+    </span>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Checkmark> should have \`checked\` class name when checked: unchecked 1`] = `
+<DocumentFragment>
+  <label
+    data-testid="label"
+  >
+    <input
+      checked=""
+      data-testid="cb"
+      id="checkbox--2"
+      name="me"
+      style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+      type="checkbox"
+    />
+    <span>
+      Checkmark
+    </span>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Checkmark> should have \`unchecked\` class name when checked: checked 1`] = `
+<DocumentFragment>
+  <label
+    data-testid="label"
+  >
+    <input
+      data-testid="cb"
+      id="checkbox--4"
+      name="me"
+      style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+      type="checkbox"
+    />
+    <span
+      class="checkbox--checked"
+    >
+      Checkmark
+    </span>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`<Checkmark> should have \`unchecked\` class name when checked: unchecked 1`] = `
+<DocumentFragment>
+  <label
+    data-testid="label"
+  >
+    <input
+      data-testid="cb"
+      id="checkbox--4"
+      name="me"
+      style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
+      type="checkbox"
+    />
+    <span
+      class="unchecked"
+    >
+      Checkmark
+    </span>
+  </label>
+</DocumentFragment>
+`;
+
 exports[`<Unchecked> should be null when checked 1`] = `
 <DocumentFragment>
   <label
@@ -94,7 +223,7 @@ exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: f
 <DocumentFragment>
   <input
     data-testid="cb"
-    id="checkbox--2"
+    id="checkbox--8"
     style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
     type="checkbox"
   />
@@ -106,7 +235,7 @@ exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: f
 <DocumentFragment>
   <input
     data-testid="cb"
-    id="checkbox--2"
+    id="checkbox--8"
     style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
     type="checkbox"
   />
@@ -118,7 +247,7 @@ exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: t
 <DocumentFragment>
   <input
     data-testid="cb"
-    id="checkbox--2"
+    id="checkbox--8"
     style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
     type="checkbox"
   />

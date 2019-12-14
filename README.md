@@ -36,19 +36,15 @@ focus and update a checkbox input with the keyboard.
 ## Quick Start
 
 ```jsx harmony
-import {Checkbox, Checked, Unchecked} from '@accessible/checkbox'
+import {Checkbox, Checkmark} from '@accessible/checkbox'
 
 const MyCheckbox = () => (
   <label className="my-checkbox">
     <Checkbox>
       <span className="my-checkbox">
-        <Checked>
-          <span className="checkmark checked" />
-        </Checked>
-
-        <Unchecked>
+        <Checkmark checkedClassName="checked" uncheckedClassName="unchecked">
           <span className="checkmark" />
-        </Unchecked>
+        </Checkmark>
       </span>
     </Checkbox>
     Check me!
@@ -73,6 +69,20 @@ deep in the tree.
 | checked        | `boolean`                                                                                                          | `undefined` | No        | Makes the checkbox a controlled component which can no longer be updated with `check`, `uncheck`, and `toggle` controls. |
 | defaultChecked | `boolean`                                                                                                          | `undefined` | No        | Set this to `true` to make the checkbox `checked` by default.                                                            |
 | children       | <code>React.ReactNode &#124; React.ReactNode[] &#124; ((context: CheckboxContextValue) => React.ReactChild)</code> | `undefined` | No        | Your custom styled checkbox.                                                                                             |
+
+### `<Checkmark>`
+
+A convenient component for conditionally adding class names and styles when the component is checked/unchecked.
+
+#### Props
+
+| Prop               | Type                  | Default               | Required? | Description                                                                            |
+| ------------------ | --------------------- | --------------------- | --------- | -------------------------------------------------------------------------------------- |
+| uncheckedClassName | `string`              | `undefined`           | No        | This class name will be applied to the child element when the checkbox is `unchecked`. |
+| checkedClassName   | `string`              | `"checkbox--checked"` | No        | This class name will be applied to the child element when the checkbox is `checked`.   |
+| uncheckedStyle     | `React.CSSProperties` | `undefined`           | No        | These styles will be applied to the child element when the checkbox is `unchecked`.    |
+| checkedStyle       | `React.CSSProperties` | `undefined`           | No        | These styles name will be applied to the child element when the checkbox is `checked`. |
+| children           | `React.ReactNode`     | `undefined`           | Yes       | The child you wish to render when the checkbox is checked.                             |
 
 ### `<Checked>`
 

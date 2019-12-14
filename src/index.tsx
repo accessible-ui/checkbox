@@ -1,7 +1,14 @@
-import React, {useState, useCallback, useMemo, useContext} from 'react'
+import React, {
+  useState,
+  useCallback,
+  useMemo,
+  useContext,
+  CSSProperties,
+} from 'react'
 import VisuallyHidden from '@accessible/visually-hidden'
 import useSwitch from '@react-hook/switch'
 import {useId} from '@reach/auto-id'
+import clsx from 'clsx'
 
 const __DEV__ =
   typeof process !== 'undefined' && process.env.NODE_ENV !== 'production'
@@ -98,15 +105,47 @@ export interface CheckedProps {
   children: React.ReactNode
 }
 
+// @ts-ignore
 export const Checked: React.FC<CheckedProps> = ({children}) =>
-  useChecked() ? <>{children}</> : null
+  useChecked() ? children : null
 
 export interface UncheckedProps {
   children: React.ReactNode
 }
 
+// @ts-ignore
 export const Unchecked: React.FC<UncheckedProps> = ({children}) =>
-  !useChecked() ? <>{children}</> : null
+  !useChecked() ? children : null
+
+export interface CheckmarkProps {
+  checkedClassName?: string
+  uncheckedClassName?: string
+  checkedStyle?: CSSProperties
+  uncheckedStyle?: CSSProperties
+  children: JSX.Element | React.ReactElement
+}
+
+export const Checkmark: React.FC<CheckmarkProps> = ({
+  children,
+  checkedClassName = 'checkbox--checked',
+  uncheckedClassName,
+  checkedStyle,
+  uncheckedStyle,
+}) => {
+  const checked = useChecked()
+  return React.cloneElement(children, {
+    className:
+      clsx(
+        children.props.className,
+        checked ? checkedClassName : uncheckedClassName
+      ) || void 0,
+    style: Object.assign(
+      {},
+      children.props.style,
+      checked ? checkedStyle : uncheckedStyle
+    ),
+  })
+}
 
 export interface ToggleProps {
   children: JSX.Element | React.ReactElement

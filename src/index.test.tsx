@@ -6,6 +6,7 @@ import {
   Checkbox,
   Checked,
   Unchecked,
+  Checkmark,
   Toggle,
   useFocused,
   useControls,
@@ -157,6 +158,59 @@ describe('<Toggle>', () => {
     expect((result.getByTestId('cb') as HTMLInputElement).checked).toBe(true)
     fireEvent.click(result.getByTestId('toggle'))
     expect((result.getByTestId('cb') as HTMLInputElement).checked).toBe(false)
+  })
+})
+
+describe('<Checkmark>', () => {
+  it('should have `checked` class name when checked', () => {
+    const result = render(
+      <label data-testid="label">
+        <Checkbox defaultChecked name="me" data-testid="cb">
+          <Checkmark checkedClassName="checked">
+            <span>Checkmark</span>
+          </Checkmark>
+        </Checkbox>
+      </label>
+    )
+
+    expect(result.asFragment()).toMatchSnapshot('checked')
+    fireEvent.click(result.getByTestId('label'))
+    expect(result.asFragment()).toMatchSnapshot('unchecked')
+  })
+
+  it('should have `unchecked` class name when checked', () => {
+    const result = render(
+      <label data-testid="label">
+        <Checkbox name="me" data-testid="cb">
+          <Checkmark uncheckedClassName="unchecked">
+            <span>Checkmark</span>
+          </Checkmark>
+        </Checkbox>
+      </label>
+    )
+
+    expect(result.asFragment()).toMatchSnapshot('unchecked')
+    fireEvent.click(result.getByTestId('label'))
+    expect(result.asFragment()).toMatchSnapshot('checked')
+  })
+
+  it('should apply checked and unchecked styles', () => {
+    const result = render(
+      <label data-testid="label">
+        <Checkbox defaultChecked name="me" data-testid="cb">
+          <Checkmark
+            checkedStyle={{display: 'block'}}
+            uncheckedStyle={{display: 'none'}}
+          >
+            <span>Checkmark</span>
+          </Checkmark>
+        </Checkbox>
+      </label>
+    )
+
+    expect(result.asFragment()).toMatchSnapshot('checked')
+    fireEvent.click(result.getByTestId('label'))
+    expect(result.asFragment()).toMatchSnapshot('unchecked')
   })
 })
 
