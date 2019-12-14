@@ -42,7 +42,7 @@ import {Checkbox, Checkmark} from '@accessible/checkbox'
 
 const MyCheckbox = () => (
   <label className="my-checkbox">
-    <Checkbox>
+    <Checkbox name='my-field-name'>
       <span className="my-checkbox">
         <Checkmark checkedClassName="checked" uncheckedClassName="unchecked">
           <span className="checkmark" />
@@ -120,6 +120,7 @@ This component clones its child and adds an `onClick` handler to toggle the chec
 | children | `React.ReactNode` | `undefined` | Yes       | The child you wish to render when the checkbox is unchecked. |
 
 ### `useCheckbox()`
+
 A React hook that returns the [`CheckboxContextValue`](#checkboxcontextvalue)
 
 ### `CheckboxContextValue`
