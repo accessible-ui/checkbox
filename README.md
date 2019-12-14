@@ -35,6 +35,8 @@ focus and update a checkbox input with the keyboard.
 
 ## Quick Start
 
+[Check out the example on CodeSandbox](https://codesandbox.io/s/accessiblecheckbox-examples-epc8b)
+
 ```jsx harmony
 import {Checkbox, Checkmark} from '@accessible/checkbox'
 
