@@ -154,8 +154,6 @@ This hook provides access to the checkbox's `check`, `uncheck`, and `toggle` fun
 
 #### Example
 
----
-
 ```jsx harmony
 const Component = () => {
   const {check, uncheck, toggle} = useControls()
