@@ -46,7 +46,7 @@ export interface CheckboxProps {
   children?:
     | React.ReactNode
     | React.ReactNode[]
-    | ((context: CheckboxContextValue) => React.ReactChild)
+    | ((context: CheckboxContextValue) => React.ReactNode)
   [property: string]: any
 }
 
