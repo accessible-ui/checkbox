@@ -166,7 +166,7 @@ describe('<Checkmark>', () => {
     const result = render(
       <label data-testid="label">
         <Checkbox defaultChecked name="me" data-testid="cb">
-          <Checkmark checkedClassName="checked">
+          <Checkmark checkedClass="checked">
             <span>Checkmark</span>
           </Checkmark>
         </Checkbox>
@@ -182,7 +182,7 @@ describe('<Checkmark>', () => {
     const result = render(
       <label data-testid="label">
         <Checkbox name="me" data-testid="cb">
-          <Checkmark uncheckedClassName="unchecked">
+          <Checkmark uncheckedClass="unchecked">
             <span>Checkmark</span>
           </Checkmark>
         </Checkbox>

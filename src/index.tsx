@@ -118,8 +118,8 @@ export const Unchecked: React.FC<UncheckedProps> = ({children}) =>
   !useChecked() ? children : null
 
 export interface CheckmarkProps {
-  checkedClassName?: string
-  uncheckedClassName?: string
+  checkedClass?: string
+  uncheckedClass?: string
   checkedStyle?: CSSProperties
   uncheckedStyle?: CSSProperties
   children: JSX.Element | React.ReactElement
@@ -127,18 +127,16 @@ export interface CheckmarkProps {
 
 export const Checkmark: React.FC<CheckmarkProps> = ({
   children,
-  checkedClassName = 'checkbox--checked',
-  uncheckedClassName,
+  checkedClass = 'checkbox--checked',
+  uncheckedClass,
   checkedStyle,
   uncheckedStyle,
 }) => {
   const checked = useChecked()
   return React.cloneElement(children, {
     className:
-      clsx(
-        children.props.className,
-        checked ? checkedClassName : uncheckedClassName
-      ) || void 0,
+      clsx(children.props.className, checked ? checkedClass : uncheckedClass) ||
+      void 0,
     style: Object.assign(
       {},
       children.props.style,

@@ -42,9 +42,9 @@ import {Checkbox, Checkmark} from '@accessible/checkbox'
 
 const MyCheckbox = () => (
   <label className="my-checkbox">
-    <Checkbox name='my-field-name'>
+    <Checkbox name="my-field-name">
       <span className="my-checkbox">
-        <Checkmark checkedClassName="checked" uncheckedClassName="unchecked">
+        <Checkmark checkedClass="checked" uncheckedClass="unchecked">
           <span className="checkmark" />
         </Checkmark>
       </span>
@@ -78,13 +78,13 @@ A convenient component for conditionally adding class names and styles when the 
 
 #### Props
 
-| Prop               | Type                  | Default               | Required? | Description                                                                            |
-| ------------------ | --------------------- | --------------------- | --------- | -------------------------------------------------------------------------------------- |
-| uncheckedClassName | `string`              | `undefined`           | No        | This class name will be applied to the child element when the checkbox is `unchecked`. |
-| checkedClassName   | `string`              | `"checkbox--checked"` | No        | This class name will be applied to the child element when the checkbox is `checked`.   |
-| uncheckedStyle     | `React.CSSProperties` | `undefined`           | No        | These styles will be applied to the child element when the checkbox is `unchecked`.    |
-| checkedStyle       | `React.CSSProperties` | `undefined`           | No        | These styles name will be applied to the child element when the checkbox is `checked`. |
-| children           | `React.ReactNode`     | `undefined`           | Yes       | The child you wish to render when the checkbox is checked.                             |
+| Prop           | Type                  | Default               | Required? | Description                                                                            |
+| -------------- | --------------------- | --------------------- | --------- | -------------------------------------------------------------------------------------- |
+| uncheckedClass | `string`              | `undefined`           | No        | This class name will be applied to the child element when the checkbox is `unchecked`. |
+| checkedClass   | `string`              | `"checkbox--checked"` | No        | This class name will be applied to the child element when the checkbox is `checked`.   |
+| uncheckedStyle | `React.CSSProperties` | `undefined`           | No        | These styles will be applied to the child element when the checkbox is `unchecked`.    |
+| checkedStyle   | `React.CSSProperties` | `undefined`           | No        | These styles name will be applied to the child element when the checkbox is `checked`. |
+| children       | `React.ReactNode`     | `undefined`           | Yes       | The child you wish to render when the checkbox is checked.                             |
 
 ### `<Checked>`
 
