@@ -1087,11 +1087,6 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@reach/auto-id@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.6.1.tgz#af30c153787a335cfb258289537d5ea355688821"
-  integrity sha512-t3uhdZwalO3Mph+CUdFIvMcYsMtRZoBHE5rw/+3UvQxV+AeQGNqmtlOix9mq3rOpxi0KEaf1q4CjWx4myFXkRQ==
-
 "@react-hook/switch@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@react-hook/switch/-/switch-1.0.4.tgz#b9a0340f0236ff0a728b0a1ec464e27ee35e9336"

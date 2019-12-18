@@ -3,7 +3,7 @@
 exports[`<Checkbox> should have a custom id: checkbox--foobar 1`] = `
 <DocumentFragment>
   <input
-    id="checkbox--foobar"
+    id="foobar"
     name="me"
     style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
     type="checkbox"
@@ -16,7 +16,6 @@ Object {
   "check": [Function],
   "checked": false,
   "focused": false,
-  "id": "checkbox--1",
   "toggle": [Function],
   "uncheck": [Function],
 }
@@ -29,7 +28,7 @@ exports[`<Checked> should be null when unchecked 1`] = `
   >
     <input
       data-testid="cb"
-      id="checkbox--foobar"
+      id="foobar"
       name="me"
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
@@ -46,7 +45,7 @@ exports[`<Checked> should display when checked: checked 1`] = `
     <input
       checked=""
       data-testid="cb"
-      id="checkbox--foobar"
+      id="foobar"
       name="me"
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
@@ -64,7 +63,6 @@ exports[`<Checkmark> should apply checked and unchecked styles: checked 1`] = `
     <input
       checked=""
       data-testid="cb"
-      id="checkbox--6"
       name="me"
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
@@ -87,7 +85,6 @@ exports[`<Checkmark> should apply checked and unchecked styles: unchecked 1`] = 
     <input
       checked=""
       data-testid="cb"
-      id="checkbox--6"
       name="me"
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
@@ -109,7 +106,6 @@ exports[`<Checkmark> should have \`checked\` class name when checked: checked 1`
     <input
       checked=""
       data-testid="cb"
-      id="checkbox--2"
       name="me"
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
@@ -131,7 +127,6 @@ exports[`<Checkmark> should have \`checked\` class name when checked: unchecked 
     <input
       checked=""
       data-testid="cb"
-      id="checkbox--2"
       name="me"
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
@@ -150,7 +145,6 @@ exports[`<Checkmark> should have \`unchecked\` class name when checked: checked 
   >
     <input
       data-testid="cb"
-      id="checkbox--4"
       name="me"
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
@@ -171,7 +165,6 @@ exports[`<Checkmark> should have \`unchecked\` class name when checked: unchecke
   >
     <input
       data-testid="cb"
-      id="checkbox--4"
       name="me"
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
@@ -193,7 +186,7 @@ exports[`<Unchecked> should be null when checked 1`] = `
     <input
       checked=""
       data-testid="cb"
-      id="checkbox--foobar"
+      id="foobar"
       name="me"
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
@@ -209,7 +202,7 @@ exports[`<Unchecked> should display when unchecked 1`] = `
   >
     <input
       data-testid="cb"
-      id="checkbox--foobar"
+      id="foobar"
       name="me"
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
@@ -223,7 +216,6 @@ exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: f
 <DocumentFragment>
   <input
     data-testid="cb"
-    id="checkbox--8"
     style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
     type="checkbox"
   />
@@ -235,7 +227,6 @@ exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: f
 <DocumentFragment>
   <input
     data-testid="cb"
-    id="checkbox--8"
     style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
     type="checkbox"
   />
@@ -247,7 +238,6 @@ exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: t
 <DocumentFragment>
   <input
     data-testid="cb"
-    id="checkbox--8"
     style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
     type="checkbox"
   />

@@ -84,7 +84,6 @@
   },
   "dependencies": {
     "@accessible/visually-hidden": "^1.0.1",
-    "@reach/auto-id": "^0.6.1",
     "@react-hook/switch": "^1.0.4",
     "clsx": "^1.0.4"
   },

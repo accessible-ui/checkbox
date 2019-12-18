@@ -67,7 +67,6 @@ deep in the tree.
 
 | Prop           | Type                                                                                                              | Default     | Required? | Description                                                                                                              |
 | -------------- | ----------------------------------------------------------------------------------------------------------------- | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
-| id             | `string`                                                                                                          | `undefined` | No        | Creates an `id` that overrides the default auto id.                                                                      |
 | checked        | `boolean`                                                                                                         | `undefined` | No        | Makes the checkbox a controlled component which can no longer be updated with `check`, `uncheck`, and `toggle` controls. |
 | defaultChecked | `boolean`                                                                                                         | `undefined` | No        | Set this to `true` to make the checkbox `checked` by default.                                                            |
 | children       | <code>React.ReactNode &#124; React.ReactNode[] &#124; ((context: CheckboxContextValue) => React.ReactNode)</code> | `undefined` | No        | Your custom styled checkbox.                                                                                             |
@@ -137,8 +136,6 @@ interface CheckboxContextValue {
   uncheck: () => void
   // Toggles the checkbox `checked` property
   toggle: () => void
-  // This is the `id` of the <input>
-  id: string
 }
 ```
 
