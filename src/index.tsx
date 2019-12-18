@@ -154,8 +154,8 @@ export const Toggle: React.FC<ToggleProps> = ({children}) => {
   return React.cloneElement(children, {
     onClick: useCallback(
       e => {
-        toggle()
         children.props.onClick?.(e)
+        toggle()
       },
       [toggle, children.props.onClick]
     ),
