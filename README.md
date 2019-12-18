@@ -87,8 +87,8 @@ A convenient component for conditionally adding class names and styles when the 
 
 ### `<Checked>`
 
-The child of this component will only render when the checkbox is in
-a `checked` state.
+The child of this component will only render when the `<Checkbox>` is in
+a `checked` state. It must be a child of a `<Checkbox>`.
 
 #### Props
 
@@ -98,8 +98,8 @@ a `checked` state.
 
 ### `<Unchecked>`
 
-The child of this component will only render when the checkbox is in
-an `unchecked` state.
+The child of this component will only render when the `<Checkbox>` is in
+an `unchecked` state. It must be a child of a `<Checkbox>`.
 
 #### Props
 
@@ -109,8 +109,8 @@ an `unchecked` state.
 
 ### `<Toggle>`
 
-This component clones its child and adds an `onClick` handler to toggle the checkbox between
-`checked` and `unchecked` states.
+This component clones its child and adds an `onClick` handler to toggle the `<Checkbox>` between
+`checked` and `unchecked` states. It must be a child of a `<Checkbox>`.
 
 #### Props
 
@@ -120,7 +120,7 @@ This component clones its child and adds an `onClick` handler to toggle the chec
 
 ### `useCheckbox()`
 
-A React hook that returns the [`CheckboxContextValue`](#checkboxcontextvalue)
+A React hook that returns the [`CheckboxContextValue`](#checkboxcontextvalue) for the nearest `<Checkbox>` parent.
 
 ### `CheckboxContextValue`
 
@@ -141,15 +141,15 @@ interface CheckboxContextValue {
 
 ### `useChecked()`
 
-Returns `true` when the checkbox is checked, otherwise `false`
+Returns `true` when the `<Checkbox>` is checked, otherwise `false`
 
 ### `useFocused()`
 
-Returns `true` when the checkbox is focused, otherwise `false`
+Returns `true` when the `<Checkbox>` is focused, otherwise `false`
 
 ### `useControls()`
 
-This hook provides access to the checkbox's `check`, `uncheck`, and `toggle` functions
+This hook provides access to the `<Checkbox>`'s `check`, `uncheck`, and `toggle` functions
 
 #### Example
 

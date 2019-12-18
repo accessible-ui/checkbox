@@ -54,50 +54,55 @@ export interface CheckboxProps {
 export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
   JSX.Element | React.ReactElement,
   CheckboxProps
->(({checked, defaultChecked, onChange, onFocus, onBlur, children, ...props}, ref: any) => {
-  const [switchChecked, toggle] = useSwitch(defaultChecked)
-  const [focused, setFocused] = useState<boolean>(false)
-  checked = checked === void 0 || checked === null ? switchChecked : checked
+>(
+  (
+    {checked, defaultChecked, onChange, onFocus, onBlur, children, ...props},
+    ref: any
+  ) => {
+    const [switchChecked, toggle] = useSwitch(defaultChecked)
+    const [focused, setFocused] = useState<boolean>(false)
+    checked = checked === void 0 || checked === null ? switchChecked : checked
 
-  const context = useMemo(
-    () => ({
-      checked,
-      check: toggle.on,
-      uncheck: toggle.off,
-      toggle,
-      focused,
-    }),
-    [checked, focused, toggle, toggle.on, toggle.off]
-  )
-  // @ts-ignore
-  children = typeof children === 'function' ? children(context) : children
-  return (
-    <CheckboxContext.Provider value={context}>
-      <VisuallyHidden>
-        <input
-          type="checkbox"
-          checked={checked}
-          ref={ref}
-          onChange={e => {
-            onChange?.(e)
-            toggle()
-          }}
-          onFocus={e => {
-            onFocus?.(e)
-            setFocused(true)
-          }}
-          onBlur={e => {
-            onBlur?.(e)
-            setFocused(false)
-          }}
-          {...props}
-        />
-      </VisuallyHidden>
+    const context = useMemo(
+      () => ({
+        checked,
+        check: toggle.on,
+        uncheck: toggle.off,
+        toggle,
+        focused,
+      }),
+      [checked, focused, toggle, toggle.on, toggle.off]
+    )
+    // @ts-ignore
+    children = typeof children === 'function' ? children(context) : children
+    return (
+      <CheckboxContext.Provider value={context}>
+        <VisuallyHidden>
+          <input
+            type="checkbox"
+            checked={checked}
+            ref={ref}
+            onChange={e => {
+              onChange?.(e)
+              toggle()
+            }}
+            onFocus={e => {
+              onFocus?.(e)
+              setFocused(true)
+            }}
+            onBlur={e => {
+              onBlur?.(e)
+              setFocused(false)
+            }}
+            {...props}
+          />
+        </VisuallyHidden>
 
-      {children}
-    </CheckboxContext.Provider>
-  )
-})
+        {children}
+      </CheckboxContext.Provider>
+    )
+  }
+)
 
 export interface CheckedProps {
   children: React.ReactNode
