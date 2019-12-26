@@ -27,7 +27,9 @@ export interface CheckboxControls {
 }
 
 // @ts-ignore
-export const CheckboxContext = React.createContext<CheckboxContextValue>({}),
+export const CheckboxContext: React.Context<CheckboxContextValue> = React.createContext(
+    {}
+  ),
   useCheckbox = () => useContext<CheckboxContextValue>(CheckboxContext),
   useChecked = () => useCheckbox().checked,
   useFocused = () => useCheckbox().focused,
@@ -65,7 +67,7 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
 
     const context = useMemo(
       () => ({
-        checked,
+        checked: checked as boolean,
         check: toggle.on,
         uncheck: toggle.off,
         toggle,
