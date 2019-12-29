@@ -3,6 +3,8 @@ import React, {
   useCallback,
   useMemo,
   useContext,
+  useEffect,
+  useRef,
   CSSProperties,
 } from 'react'
 import VisuallyHidden from '@accessible/visually-hidden'
@@ -42,7 +44,7 @@ export const CheckboxContext: React.Context<CheckboxContextValue> = React.create
 export interface CheckboxProps {
   checked?: boolean
   defaultChecked?: boolean
-  onChange?: (event: React.ChangeEvent) => any
+  onChange?: (checked: boolean) => any
   onFocus?: (event: React.FocusEvent) => any
   onBlur?: (event: React.FocusEvent) => any
   children?:
@@ -58,13 +60,22 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
   CheckboxProps
 >(
   (
-    {checked, defaultChecked, onChange, onFocus, onBlur, children, ...props},
+    {
+      checked: controlledChecked,
+      defaultChecked,
+      onChange,
+      onFocus,
+      onBlur,
+      children,
+      ...props
+    },
     ref: any
   ) => {
     const [switchChecked, toggle] = useSwitch(defaultChecked)
     const [focused, setFocused] = useState<boolean>(false)
-    checked = checked === void 0 || checked === null ? switchChecked : checked
-
+    const checked =
+      controlledChecked === void 0 ? switchChecked : controlledChecked
+    const prevChecked = useRef<boolean>(checked)
     const context = useMemo(
       () => ({
         checked: checked as boolean,
@@ -77,6 +88,12 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
     )
     // @ts-ignore
     children = typeof children === 'function' ? children(context) : children
+
+    useEffect(() => {
+      prevChecked.current !== checked && onChange?.(checked)
+      prevChecked.current = checked
+    }, [checked])
+
     return (
       <CheckboxContext.Provider value={context}>
         <VisuallyHidden>
@@ -84,10 +101,7 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
             type="checkbox"
             checked={checked}
             ref={ref}
-            onChange={e => {
-              onChange?.(e)
-              toggle()
-            }}
+            onChange={() => toggle()}
             onFocus={e => {
               onFocus?.(e)
               setFocused(true)
