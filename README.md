@@ -147,6 +147,10 @@ Returns `true` when the `<Checkbox>` is checked, otherwise `false`
 
 Returns `true` when the `<Checkbox>` is focused, otherwise `false`
 
+### `useDisabled()`
+
+Returns `true` when the `<Checkbox>` is disabled, otherwise `false`
+
 ### `useControls()`
 
 This hook provides access to the `<Checkbox>`'s `check`, `uncheck`, and `toggle` functions

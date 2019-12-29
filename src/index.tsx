@@ -20,6 +20,7 @@ export interface CheckboxContextValue {
   uncheck: () => void
   toggle: () => void
   focused: boolean
+  disabled: boolean
 }
 
 export interface CheckboxControls {
@@ -35,15 +36,20 @@ export const CheckboxContext: React.Context<CheckboxContextValue> = React.create
   useCheckbox = () => useContext<CheckboxContextValue>(CheckboxContext),
   useChecked = () => useCheckbox().checked,
   useFocused = () => useCheckbox().focused,
+  useDisabled = () => useCheckbox().disabled,
   useControls = (): CheckboxControls =>
     Object.entries(useCheckbox()).reduce((prev, [key, value]) => {
       if (typeof value === 'function') prev[key] = value
       return prev
     }, {}) as CheckboxControls
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const noop = () => {}
+
 export interface CheckboxProps {
   checked?: boolean
   defaultChecked?: boolean
+  disabled?: boolean
   onChange?: (checked: boolean) => any
   onFocus?: (event: React.FocusEvent) => any
   onBlur?: (event: React.FocusEvent) => any
@@ -63,6 +69,7 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
     {
       checked: controlledChecked,
       defaultChecked,
+      disabled = false,
       onChange,
       onFocus,
       onBlur,
@@ -79,12 +86,13 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
     const context = useMemo(
       () => ({
         checked: checked as boolean,
-        check: toggle.on,
-        uncheck: toggle.off,
-        toggle,
+        check: disabled ? noop : toggle.on,
+        uncheck: disabled ? noop : toggle.off,
+        toggle: disabled ? noop : toggle,
         focused,
+        disabled,
       }),
-      [checked, focused, toggle, toggle.on, toggle.off]
+      [checked, focused, disabled, toggle, toggle.on, toggle.off]
     )
     // @ts-ignore
     children = typeof children === 'function' ? children(context) : children
@@ -110,6 +118,7 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
               onBlur?.(e)
               setFocused(false)
             }}
+            disabled={disabled}
             {...props}
           />
         </VisuallyHidden>

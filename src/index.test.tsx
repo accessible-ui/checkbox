@@ -33,6 +33,19 @@ describe('<Checkbox>', () => {
     expect((result.getByTestId('cb') as HTMLInputElement).checked).toBe(false)
   })
 
+  it('should not change when disabled', () => {
+    const result = render(
+      <label data-testid="label">
+        <Checkbox disabled id="foobar" name="me" data-testid="cb" />
+        check me
+      </label>
+    )
+
+    expect((result.getByTestId('cb') as HTMLInputElement).checked).toBe(false)
+    fireEvent.click(result.getByTestId('label'))
+    expect((result.getByTestId('cb') as HTMLInputElement).checked).toBe(false)
+  })
+
   it('can be checked by default', () => {
     const result = render(
       <label data-testid="label">
