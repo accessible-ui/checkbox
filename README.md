@@ -69,6 +69,7 @@ deep in the tree.
 | -------------- | ----------------------------------------------------------------------------------------------------------------- | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
 | checked        | `boolean`                                                                                                         | `undefined` | No        | Makes the checkbox a controlled component which can no longer be updated with `check`, `uncheck`, and `toggle` controls. |
 | defaultChecked | `boolean`                                                                                                         | `undefined` | No        | Set this to `true` to make the checkbox `checked` by default.                                                            |
+| onChange       | `(checked: boolean) => any`                                                                                       | `undefined` | No        | Called each time the `checked` state changes.                                                                            |
 | children       | <code>React.ReactNode &#124; React.ReactNode[] &#124; ((context: CheckboxContextValue) => React.ReactNode)</code> | `undefined` | No        | Your custom styled checkbox.                                                                                             |
 
 ### `<Checkmark>`
@@ -130,6 +131,8 @@ interface CheckboxContextValue {
   checked: boolean
   // Is the checkbox currently focused?
   focused: boolean
+  // Is the checkbox currently disabled?
+  disabled: boolean
   // Checks the checkbox
   check: () => void
   // Unchecks the checkbox
