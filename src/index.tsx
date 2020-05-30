@@ -1,12 +1,4 @@
-import React, {
-  useState,
-  useCallback,
-  useMemo,
-  useContext,
-  useEffect,
-  useRef,
-  CSSProperties,
-} from 'react'
+import * as React from 'react'
 import VisuallyHidden from '@accessible/visually-hidden'
 import useSwitch from '@react-hook/switch'
 import clsx from 'clsx'
@@ -14,51 +6,29 @@ import clsx from 'clsx'
 const __DEV__ =
   typeof process !== 'undefined' && process.env.NODE_ENV !== 'production'
 
-export interface CheckboxContextValue {
-  checked: boolean
-  check: () => void
-  uncheck: () => void
-  toggle: () => void
-  focused: boolean
-  disabled: boolean
-}
+const noop = () => {}
 
-export interface CheckboxControls {
-  check: () => void
-  uncheck: () => void
-  toggle: () => void
-}
-
-// @ts-ignore
-export const CheckboxContext: React.Context<CheckboxContextValue> = React.createContext(
-    {}
-  ),
-  useCheckbox = () => useContext<CheckboxContextValue>(CheckboxContext),
+export const CheckboxContext = React.createContext<CheckboxContextValue>({
+    checked: false,
+    check: noop,
+    uncheck: noop,
+    toggle: noop,
+    focused: false,
+    disabled: false,
+  }),
+  useCheckbox = () => React.useContext<CheckboxContextValue>(CheckboxContext),
   useChecked = () => useCheckbox().checked,
   useFocused = () => useCheckbox().focused,
   useDisabled = () => useCheckbox().disabled,
-  useControls = (): CheckboxControls =>
-    Object.entries(useCheckbox()).reduce((prev, [key, value]) => {
-      if (typeof value === 'function') prev[key] = value
-      return prev
-    }, {}) as CheckboxControls
-
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const noop = () => {}
-
-export interface CheckboxProps {
-  checked?: boolean
-  defaultChecked?: boolean
-  disabled?: boolean
-  onChange?: (checked: boolean) => any
-  onFocus?: (event: React.FocusEvent) => any
-  onBlur?: (event: React.FocusEvent) => any
-  children?:
-    | React.ReactNode
-    | React.ReactNode[]
-    | ((context: CheckboxContextValue) => React.ReactNode)
-  [property: string]: any
-}
+  useControls = () =>
+    Object.entries(useCheckbox()).reduce<CheckboxControls>(
+      (prev, [key, value]) => {
+        // @ts-ignore
+        if (typeof value === 'function') prev[key] = value
+        return prev
+      },
+      {} as CheckboxControls
+    )
 
 // @ts-ignore
 export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
@@ -79,11 +49,13 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
     ref: any
   ) => {
     const [switchChecked, toggle] = useSwitch(defaultChecked)
-    const [focused, setFocused] = useState<boolean>(false)
+    const [focused, setFocused] = React.useState<boolean>(false)
     const checked =
       controlledChecked === void 0 ? switchChecked : controlledChecked
-    const prevChecked = useRef<boolean>(checked)
-    const context = useMemo(
+    const prevChecked = React.useRef<boolean>(checked)
+    const storedOnChange = React.useRef(onChange)
+    storedOnChange.current = onChange
+    const context = React.useMemo(
       () => ({
         checked: checked as boolean,
         check: disabled ? noop : toggle.on,
@@ -97,10 +69,11 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
     // @ts-ignore
     children = typeof children === 'function' ? children(context) : children
 
-    useEffect(() => {
-      prevChecked.current !== checked && onChange?.(checked)
-      prevChecked.current = checked
-    }, [checked])
+    React.useEffect(() => {
+      prevChecked.current !== switchChecked &&
+        storedOnChange.current?.(switchChecked)
+      prevChecked.current = switchChecked
+    }, [switchChecked])
 
     return (
       <CheckboxContext.Provider value={context}>
@@ -110,11 +83,11 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
             checked={checked}
             ref={ref}
             onChange={() => toggle()}
-            onFocus={e => {
+            onFocus={(e) => {
               onFocus?.(e)
               setFocused(true)
             }}
-            onBlur={e => {
+            onBlur={(e) => {
               onBlur?.(e)
               setFocused(false)
             }}
@@ -129,10 +102,6 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
   }
 )
 
-export interface CheckedProps {
-  children: React.ReactNode
-}
-
 // @ts-ignore
 export const Checked: React.FC<CheckedProps> = ({children}) =>
   useChecked() ? children : null
@@ -145,12 +114,18 @@ export interface UncheckedProps {
 export const Unchecked: React.FC<UncheckedProps> = ({children}) =>
   !useChecked() ? children : null
 
-export interface CheckmarkProps {
-  checkedClass?: string
-  uncheckedClass?: string
-  checkedStyle?: CSSProperties
-  uncheckedStyle?: CSSProperties
-  children: JSX.Element | React.ReactElement
+export interface CheckboxProps {
+  checked?: boolean
+  defaultChecked?: boolean
+  disabled?: boolean
+  onChange?: (checked: boolean) => any
+  onFocus?: (event: React.FocusEvent) => any
+  onBlur?: (event: React.FocusEvent) => any
+  children?:
+    | React.ReactNode
+    | React.ReactNode[]
+    | ((context: CheckboxContextValue) => React.ReactNode)
+  [property: string]: any
 }
 
 export const Checkmark: React.FC<CheckmarkProps> = ({
@@ -173,21 +148,45 @@ export const Checkmark: React.FC<CheckmarkProps> = ({
   })
 }
 
+export const Toggle: React.FC<ToggleProps> = ({children}) => {
+  const {toggle} = useControls()
+  return React.cloneElement(children, {
+    onClick: (e: React.MouseEvent<HTMLElement>) => {
+      children.props.onClick?.(e)
+      toggle()
+    },
+  })
+}
+
+export interface CheckedProps {
+  children: React.ReactNode
+}
+
+export interface CheckmarkProps {
+  checkedClass?: string
+  uncheckedClass?: string
+  checkedStyle?: React.CSSProperties
+  uncheckedStyle?: React.CSSProperties
+  children: JSX.Element | React.ReactElement
+}
+
 export interface ToggleProps {
   children: JSX.Element | React.ReactElement
 }
 
-export const Toggle: React.FC<ToggleProps> = ({children}) => {
-  const {toggle} = useControls()
-  return React.cloneElement(children, {
-    onClick: useCallback(
-      e => {
-        children.props.onClick?.(e)
-        toggle()
-      },
-      [toggle, children.props.onClick]
-    ),
-  })
+export interface CheckboxContextValue {
+  checked: boolean
+  check: () => void
+  uncheck: () => void
+  toggle: () => void
+  focused: boolean
+  disabled: boolean
+}
+
+export interface CheckboxControls {
+  check: () => void
+  uncheck: () => void
+  toggle: () => void
 }
 
 /* istanbul ignore next */

@@ -93,7 +93,7 @@ describe('<Checkbox>', () => {
 
     render(
       <Checkbox>
-        {context => {
+        {(context) => {
           cxt = context
           return <div />
         }}
