@@ -3,9 +3,6 @@ import VisuallyHidden from '@accessible/visually-hidden'
 import useSwitch from '@react-hook/switch'
 import clsx from 'clsx'
 
-const __DEV__ =
-  typeof process !== 'undefined' && process.env.NODE_ENV !== 'production'
-
 const noop = () => {}
 
 export const CheckboxContext = React.createContext<CheckboxContextValue>({
@@ -52,9 +49,6 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
     const [focused, setFocused] = React.useState<boolean>(false)
     const checked =
       controlledChecked === void 0 ? switchChecked : controlledChecked
-    const prevChecked = React.useRef<boolean>(checked)
-    const storedOnChange = React.useRef(onChange)
-    storedOnChange.current = onChange
     const context = React.useMemo(
       () => ({
         checked: checked as boolean,
@@ -69,12 +63,6 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
     // @ts-ignore
     children = typeof children === 'function' ? children(context) : children
 
-    React.useEffect(() => {
-      prevChecked.current !== switchChecked &&
-        storedOnChange.current?.(switchChecked)
-      prevChecked.current = switchChecked
-    }, [switchChecked])
-
     return (
       <CheckboxContext.Provider value={context}>
         <VisuallyHidden>
@@ -82,14 +70,17 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef<
             type="checkbox"
             checked={checked}
             ref={ref}
-            onChange={() => toggle()}
+            onChange={(e) => {
+              toggle()
+              onChange?.(e.target.checked)
+            }}
             onFocus={(e) => {
-              onFocus?.(e)
               setFocused(true)
+              onFocus?.(e)
             }}
             onBlur={(e) => {
-              onBlur?.(e)
               setFocused(false)
+              onBlur?.(e)
             }}
             disabled={disabled}
             {...props}
@@ -190,7 +181,7 @@ export interface CheckboxControls {
 }
 
 /* istanbul ignore next */
-if (__DEV__) {
+if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
   Checkbox.displayName = 'Checkbox'
   Checked.displayName = 'Checked'
   Unchecked.displayName = 'Unchecked'
