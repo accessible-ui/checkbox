@@ -1,5 +1,4 @@
 import * as React from 'react';
-export declare const CheckboxContext: React.Context<CheckboxContextValue>;
 export declare const useCheckbox: () => CheckboxContextValue;
 export declare const Checkbox: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>>;
 export declare function Checked({ children }: CheckedProps): JSX.Element | null;

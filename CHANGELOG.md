@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/accessible-ui/checkbox/compare/v4.0.0...v4.0.1) (2020-07-11)
+
+
+### Bug Fixes
+
+* remove CheckboxContext export ([03880c8](https://github.com/accessible-ui/checkbox/commit/03880c81a9074f0201593bc67a27722fe12a60c3))
+
 ## 4.0.0 (2020-07-11)
 
 
