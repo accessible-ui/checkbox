@@ -11,17 +11,6 @@ exports[`<Checkbox> should have a custom id: checkbox--foobar 1`] = `
 </DocumentFragment>
 `;
 
-exports[`<Checkbox> should provide context to function child 1`] = `
-Object {
-  "check": [Function],
-  "checked": false,
-  "disabled": false,
-  "focused": false,
-  "toggle": [Function],
-  "uncheck": [Function],
-}
-`;
-
 exports[`<Checked> should be null when unchecked 1`] = `
 <DocumentFragment>
   <label
@@ -69,7 +58,6 @@ exports[`<Checkmark> should apply checked and unchecked styles: checked 1`] = `
       type="checkbox"
     />
     <span
-      class="checkbox--checked"
       style="display: block;"
     >
       Checkmark
@@ -150,9 +138,7 @@ exports[`<Checkmark> should have \`unchecked\` class name when checked: checked 
       style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
       type="checkbox"
     />
-    <span
-      class="checkbox--checked"
-    >
+    <span>
       Checkmark
     </span>
   </label>
@@ -210,38 +196,5 @@ exports[`<Unchecked> should display when unchecked 1`] = `
     />
     Unchecked
   </label>
-</DocumentFragment>
-`;
-
-exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: false 1`] = `
-<DocumentFragment>
-  <input
-    data-testid="cb"
-    style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
-    type="checkbox"
-  />
-  false
-</DocumentFragment>
-`;
-
-exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: false 2`] = `
-<DocumentFragment>
-  <input
-    data-testid="cb"
-    style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
-    type="checkbox"
-  />
-  false
-</DocumentFragment>
-`;
-
-exports[`useFocused() should be \`true\` when focused, \`false\` when blurred: true 1`] = `
-<DocumentFragment>
-  <input
-    data-testid="cb"
-    style="border: 0px; height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; position: absolute;"
-    type="checkbox"
-  />
-  true
 </DocumentFragment>
 `;
