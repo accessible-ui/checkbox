@@ -3,7 +3,7 @@ import {VisuallyHidden} from '@accessible/visually-hidden'
 import useSwitch from '@react-hook/switch'
 import clsx from 'clsx'
 
-export const CheckboxContext = React.createContext<CheckboxContextValue>({
+const CheckboxContext = React.createContext<CheckboxContextValue>({
   checked: false,
   check: noop,
   uncheck: noop,
