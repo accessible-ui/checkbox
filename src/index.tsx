@@ -12,8 +12,13 @@ const CheckboxContext = React.createContext<CheckboxContextValue>({
   disabled: false,
 })
 
-export const useCheckbox = () =>
-  React.useContext<CheckboxContextValue>(CheckboxContext)
+export const useCheckbox = () => {
+  const context = React.useContext<CheckboxContextValue>(CheckboxContext)
+  if (context === undefined) {
+    throw new Error('useCheckbox must be used within a CheckboxContext')
+  }
+  return context
+}
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
