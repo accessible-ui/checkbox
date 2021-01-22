@@ -30,7 +30,7 @@
 <hr>
 
 An accessible checkbox component for React. This library allows you to create
-your own a checkbox with your own styles while maintaining the ability to
+your own checkbox with your own styles while maintaining the ability to
 focus and update a checkbox input with the keyboard.
 
 ## Quick Start
